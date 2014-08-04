@@ -32,7 +32,7 @@ fi
 
 ./tools/dump-symbols.sh
 
-version=$(bin/phantomjs --version | sed 's/ /-/' | sed 's/[()]//g')
+version=$(sed -n 's/#define PHANTOMJS_VERSION_STRING[[:space:]]*//p' src/consts.h | sed 's/"//g')
 if [[ $OSTYPE = darwin* ]]; then
     symbols="phantomjs-$version-macosx-symbols"
 else

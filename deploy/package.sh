@@ -24,7 +24,7 @@ else
     bundle_libs=0
 fi
 
-version=$(../bin/phantomjs --version | sed 's/ /-/' | sed 's/[()]//g')
+version=$(sed -n 's/#define PHANTOMJS_VERSION_STRING[[:space:]]*//p' ../src/consts.h | sed 's/"//g')
 src=..
 
 echo "packaging phantomjs $version"

@@ -2,40 +2,46 @@
 
 export PATH=$HOME/git/bin:$PATH
 
+repo_url=$1
+repo_version=$2
+
 if type apt-get >/dev/null 2>&1; then
     apt-get update
-    apt-get install -y build-essential git-core libssl-dev libfontconfig1-dev gdb binutils-gold
+    apt-get install -y \
+        build-essential \
+        git-core \
+        libssl-dev \
+        libfontconfig1-dev \
+        binutils-gold  \
+        openssl \
+        chrpath \
+        libssl-dev \
+        libfontconfig1-dev \
+        libglib2.0-dev \
+        libx11-dev \
+        libxext-dev \
+        libfreetype6-dev \
+        libxcursor-dev \
+        libxrandr-dev \
+        libxv-dev \
+        libxi-dev \
+        libgstreamermm-0.10-dev \
+        xvfb
 fi
 
-if type yum >/dev/null 2>&1; then
-    yum -y update
-    yum -y install gcc gcc-c++ make openssl-devel freetype-devel fontconfig-devel
-    if type git >/dev/null 2>&1; then
-        echo "Git is already available."
-    else
-        yum -y install cpio expat-devel gettext-devel zlib-devel
-        echo "Downloading and building git..."
-        rm -rf git-*
-        wget -nv https://git-core.googlecode.com/files/git-1.8.0.3.tar.gz
-        tar -xzvf git-1.8.0.3.tar.gz
-        cd git-1.8.0.3
-        ./configure --prefix=$HOME/git && make -j2 && make install
-        cd ..
-        sleep 3
-    fi
-fi
+echo "Building from $repo_url with $repo_version"
 
 if [[ ! -d phantomjs ]]; then
-    git clone git://github.com/ariya/phantomjs.git
+    mkdir phantomjs
+    cd phantomjs
+    git clone $repo_url .
+else
+    cd phantomjs
 fi
 
-cd phantomjs
 git fetch origin
 git reset --hard
-git checkout $1
-
-cp /vagrant/build-and-package.sh deploy/
-cp /vagrant/package.sh deploy/
+git checkout $repo_version
 
 deploy/build-and-package.sh
 
