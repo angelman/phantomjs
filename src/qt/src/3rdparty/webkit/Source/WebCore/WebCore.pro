@@ -35,27 +35,27 @@ contains(DEFINES, ENABLE_WCSS=1) {
 
 SOURCES += \
     accessibility/AccessibilityImageMapLink.cpp \
-    accessibility/AccessibilityMediaControls.cpp \    
+    accessibility/AccessibilityMediaControls.cpp \
     accessibility/AccessibilityMenuList.cpp \
     accessibility/AccessibilityMenuListOption.cpp \
     accessibility/AccessibilityMenuListPopup.cpp \
-    accessibility/AccessibilityObject.cpp \    
-    accessibility/AccessibilityList.cpp \    
-    accessibility/AccessibilityListBox.cpp \    
-    accessibility/AccessibilityListBoxOption.cpp \    
-    accessibility/AccessibilityProgressIndicator.cpp \    
-    accessibility/AccessibilityRenderObject.cpp \    
+    accessibility/AccessibilityObject.cpp \
+    accessibility/AccessibilityList.cpp \
+    accessibility/AccessibilityListBox.cpp \
+    accessibility/AccessibilityListBoxOption.cpp \
+    accessibility/AccessibilityProgressIndicator.cpp \
+    accessibility/AccessibilityRenderObject.cpp \
     accessibility/AccessibilityScrollbar.cpp \
     accessibility/AccessibilityScrollView.cpp \
-    accessibility/AccessibilitySlider.cpp \    
-    accessibility/AccessibilityARIAGrid.cpp \    
-    accessibility/AccessibilityARIAGridCell.cpp \    
-    accessibility/AccessibilityARIAGridRow.cpp \    
-    accessibility/AccessibilityTable.cpp \    
-    accessibility/AccessibilityTableCell.cpp \    
-    accessibility/AccessibilityTableColumn.cpp \    
-    accessibility/AccessibilityTableHeaderContainer.cpp \    
-    accessibility/AccessibilityTableRow.cpp \    
+    accessibility/AccessibilitySlider.cpp \
+    accessibility/AccessibilityARIAGrid.cpp \
+    accessibility/AccessibilityARIAGridCell.cpp \
+    accessibility/AccessibilityARIAGridRow.cpp \
+    accessibility/AccessibilityTable.cpp \
+    accessibility/AccessibilityTableCell.cpp \
+    accessibility/AccessibilityTableColumn.cpp \
+    accessibility/AccessibilityTableHeaderContainer.cpp \
+    accessibility/AccessibilityTableRow.cpp \
     accessibility/AXObjectCache.cpp \
     bindings/generic/ActiveDOMCallback.cpp \
     bindings/generic/RuntimeEnabledFeatures.cpp
@@ -1968,7 +1968,7 @@ HEADERS += \
     platform/graphics/ShadowBlur.h \
     platform/graphics/SimpleFontData.h \
     platform/graphics/Tile.h \
-    platform/graphics/TiledBackingStore.h \    
+    platform/graphics/TiledBackingStore.h \
     platform/graphics/TiledBackingStoreClient.h \
     platform/graphics/transforms/Matrix3DTransformOperation.h \
     platform/graphics/transforms/MatrixTransformOperation.h \
@@ -2211,7 +2211,7 @@ HEADERS += \
     rendering/svg/RenderSVGResource.h \
     rendering/svg/RenderSVGResourceClipper.h \
     rendering/svg/RenderSVGResourceContainer.h \
-    rendering/svg/RenderSVGResourceFilter.h \ 
+    rendering/svg/RenderSVGResourceFilter.h \
     rendering/svg/RenderSVGResourceFilterPrimitive.h \
     rendering/svg/RenderSVGResourceGradient.h \
     rendering/svg/RenderSVGResourceLinearGradient.h \
@@ -2580,6 +2580,8 @@ contains(DEFINES, ENABLE_NETSCAPE_PLUGIN_API=1) {
 
     unix:!symbian {
         mac {
+            INCLUDEPATH += \
+                $$SOURCE_DIR/WebCore/platform/mac/
             SOURCES += \
                 plugins/mac/PluginPackageMac.cpp
             OBJECTIVE_SOURCES += \
@@ -3002,7 +3004,7 @@ contains(DEFINES, ENABLE_VIDEO=1) {
             platform/graphics/gstreamer/ImageGStreamerQt.cpp
 
     } else:contains(DEFINES, WTF_USE_QT_MULTIMEDIA=1) {
-        HEADERS += \ 
+        HEADERS += \
             platform/graphics/qt/MediaPlayerPrivateQt.h
 
         SOURCES += \
@@ -3106,7 +3108,7 @@ contains(DEFINES, WTF_USE_QT_BEARER=1) {
 }
 
 # QRawFont feature added in Qt 4.8.0
-# 
+#
 # If available, this is used to implement the fast path for text rendering
 # and measurement in WebCore. Because the feature is still undergoing
 # development, it is disabled in builds.
