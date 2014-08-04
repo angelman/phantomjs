@@ -18,6 +18,7 @@ qrc_*
 /debian/*/
 /deploy/qt-*.tar.gz
 /deploy/Qt-*
+/deploy/phantomjs-*
 /symbols
 /src/qt/qtc-debugging-helper
 /src/phantomjs_plugin_import.cpp
