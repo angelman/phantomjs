@@ -9,24 +9,23 @@ if type apt-get >/dev/null 2>&1; then
     apt-get update
     apt-get install -y \
         build-essential \
-        git-core \
-        libssl-dev \
+        g++ \
+        flex \
+        bison \
+        gperf \
+        ruby \
+        perl \
+        libsqlite3-dev \
         libfontconfig1-dev \
-        binutils-gold  \
-        openssl \
-        chrpath \
+        libicu-dev \
+        libfreetype6 \
         libssl-dev \
-        libfontconfig1-dev \
-        libglib2.0-dev \
+        libpng-dev \
+        libjpeg-dev \
+        python \
         libx11-dev \
         libxext-dev \
-        libfreetype6-dev \
-        libxcursor-dev \
-        libxrandr-dev \
-        libxv-dev \
-        libxi-dev \
-        libgstreamermm-0.10-dev \
-        xvfb
+        git
 fi
 
 echo "Building from $repo_url with $repo_version"
